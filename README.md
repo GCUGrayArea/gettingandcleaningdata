@@ -1,6 +1,8 @@
 Getting and Cleaning Data Course Project
 ===========================================
-This script entails the collection, cleaning and analysis of an untidy dataset. Per the Coursera course, the original data was collected from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip . Files in the repo for this project should include this file (README.md), a codebook describing variables (codebook.md), a script conducting the required analysis (run_analysis.R) and an export of the final tidy data set for convenience (submitteddataset.csv).
+This project entails the collection, cleaning and analysis of an untidy dataset. Per the Coursera course, the original data was collected from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip . Files in the repo for this project should include this file (README.md), a codebook describing variables (codebook.md), and a script conducting the required analysis (run_analysis.R). The final tidy data set is uploaded separately within Coursera and so not provided here.
+
+This script *absolutely must* be run in the "UCI HAR Dataset" directory as unzipped directly from the download link to work properly.
 
 README.md
 ------------------------
@@ -32,7 +34,3 @@ The script's general workflow is as follows:
 codebook.md
 ---------------
 Codebook for the submitted dataset. The variables of the final dataset are explained by reference to the original dataset's codebook, "features_info.txt", which is reproduced in full for the sake of thoroughness.
-
-submitteddataset.csv
-----------------------
-An exported copy of the output of run_analysis.R, provided for convenience. This data set is tidy: as in the original set, one observation is one row. Each column in the output is a unique variable, and columns are not used to stand in for values of variables. This has 180 rows, one for each possible combination of 30 test subjects and six activities.
