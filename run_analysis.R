@@ -1,10 +1,7 @@
-origwd <- getwd() # stores the original working directory to come back to later
-
 # Step 1: Merge the training and test sets to create one data set
 
-datahome <- "C:/Users/Graham/Documents/R Programming/Data Cleaning Project/UCI HAR Dataset"
-                # stores the main directory to maintain absolute reference point
-setwd(datahome)
+origwd <- getwd() # stores the original working directory to come back to later
+
 setwd("./train")# opens the directory storing the training set
 
 trainsubj <- read.table("subject_train.txt") #loads training subjects
@@ -16,7 +13,7 @@ rm("trainlabel"); rm("trainsubj"); rm("traindata")
         # merges test subjects, labels and training data into data frame "train"
         # and deletes the original data frames from memory
 
-setwd(datahome) # returns to the main directory
+setwd(origwd) # returns to the main directory
 setwd("./test") # opens the directory storing the test data
 
 testsubj <- read.table("subject_test.txt") #loads test subjects
@@ -30,7 +27,7 @@ dataset <- rbind(train, test); rm("train"); rm("test")
         # combines training and test sets into one data frame and
         # deletes the original data frames from memory
 
-setwd(datahome) # the features.txt file is here, so we need to go back
+setwd(origwd) # the features.txt file is here, so we need to go back
 features <- read.table("features.txt", stringsAsFactors = FALSE)[, 2]
         # loads the feature names. StringsAsFactors is set to false so the names
         # are read in as class character, and the first column (containing
@@ -98,4 +95,4 @@ overview <- dataset %>% tbl_df %>% group_by(activity, subject) %>%
 # possible activity-subject combination. Step 5 complete.
 
 setwd(origwd) # returns to the originally stored working directory
-write.csv(overview, "submitteddataset.csv")
+write.table(overview, "submitteddataset.txt", row.name = FALSE)
